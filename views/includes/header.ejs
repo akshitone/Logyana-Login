@@ -27,7 +27,7 @@
                             <ul class="navbar-nav ml-auto navbar-list align-items-center">
                                 <li class="caption-content">
                                     <a href="#" class="iq-user-toggle">
-                                        <img src="/images/user/1.jpg" class="img-fluid rounded" alt="user">
+                                        <img src="/images/user/10.jpg" class="img-fluid rounded" alt="user">
                                     </a>
                                     <div class="iq-user-dropdown">
                                         <div class="card">
@@ -44,16 +44,30 @@
                                                     <div class="profile-header">
                                                         <div class="cover-container ">
                                                             <div class="media align-items-center mb-4">
-                                                                <img src="/images/user/1.jpg" alt="profile-bg"
+                                                                <img src="/images/user/10.jpg" alt="profile-bg"
                                                                     class="rounded img-fluid avatar-80">
+                                                                <% if (isLoggedIn) { %>
                                                                 <div class="media-body profile-detail ml-3">
-                                                                    <h3>Bill Yerds</h3>
+                                                                    <h3><%= user.name %>
+                                                                    </h3>
                                                                     <div class="d-flex flex-wrap">
-                                                                        <p class="mb-1">Web designer</p><a
-                                                                            href="auth-sign-in.html" class=" ml-3">Sign
-                                                                            Out</a>
+                                                                        <p class="mb-1"><%= user.phoneno %></p>
+                                                                        <form action="/logout" method="POST">
+                                                                            <button type="submit"
+                                                                                class="btn btn-danger ml-3">Sign
+                                                                                Out</button>
+                                                                        </form>
                                                                     </div>
                                                                 </div>
+                                                                <% }else{ %>
+                                                                <div class="media-body profile-detail ml-3">
+                                                                    <div class="d-flex flex-wrap">
+                                                                        <a href="/login"
+                                                                            class="btn btn-primary ml-3">Log in
+                                                                        </a>
+                                                                    </div>
+                                                                </div>
+                                                                <% } %>
                                                             </div>
                                                         </div>
                                                     </div>
